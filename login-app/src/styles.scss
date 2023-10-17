@@ -35,7 +35,7 @@ $login-app-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: #95bce2;
+    background-color: #95bce2 !important;
     overflow:hidden;
 }
 html, body { height: 100%; }
