@@ -1,0 +1,16 @@
+
+.custom-background {
+    background-image: url('../assets/images/testimage.jpg'); /* Update the path to your image */
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    /* You can add more background properties here */
+  }
+
+.centered-div {
+    display: block;
+    place-items: center; /* Center both vertically and horizontally */
+    align-items: center; /* Vertical centering */
+    height: 90vh;
+    margin: 50px;
+  }
+
