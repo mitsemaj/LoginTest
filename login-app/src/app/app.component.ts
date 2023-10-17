@@ -1,27 +1,30 @@
 
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './components/login/login.component';
+import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './components/modal/modal.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
-  @ViewChild('loginModalElement') loginModalElement: any;
+export class AppComponent implements OnInit {
 
-  constructor(private modalService: NgbModal) {}
-  ngAfterViewInit(): void {
-    this.openModalOnLoad();
+  constructor(public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    this.openLoginModal();
   }
-  title = 'login-app';
 
-  openModalOnLoad() {
-    // Open the modal on app load
-    this.modalService.open(LoginComponent, {
-      centered: true, // Center the modal vertically and horizontally
-      backdrop: 'static', // Prevent closing the modal by clicking outside
+  openLoginModal(): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '400px',
+      height: '400px',
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
     });
   }
 }
